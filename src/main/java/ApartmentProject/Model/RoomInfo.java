@@ -1,7 +1,7 @@
 package ApartmentProject.Model;
 
 public class RoomInfo {
-    private int id;
+    private String id;
     private int apartmentId;
     private int floor;
     private String type;
@@ -9,11 +9,11 @@ public class RoomInfo {
     private String availableDate;
     private String layoutPhoto;
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 
-    public void setId(int id){
+    public void setId(String id){
 
         this.id=id;
     }

@@ -12,10 +12,7 @@ ALTER TABLE apartment ADD CONSTRAINT apartment_pk PRIMARY KEY ( id );
 CREATE TABLE propertyInfo (
    id              SERIAL NOT NULL,
    apartment_id	   INTEGER NOT NULL,
-   street_address  VARCHAR(100),
-   city			   VARCHAR(30),
-   state 		   VARCHAR(30),
-   zip_code		   VARCHAR(30),
+   address          VARCHAR(300),
    phone_number    INTEGER,
    email           VARCHAR(50),
    office_hours    VARCHAR(50),

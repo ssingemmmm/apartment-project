@@ -30,11 +30,11 @@ public class RoomInfoDao {
 
             //step 3:execute a query
             stmt = conn.createStatement();
-            String sql = "SELECT * FROM roomInfo";
+            String sql = "SELECT * FROM roominfo";
             rs = stmt.executeQuery(sql);
             //step 4: extract data from result set
             while (rs.next()) {
-                int id = rs.getInt("id");
+                String id = rs.getString("id");
                 int apartmentId = rs.getInt("apartment_id");
                 int floor = rs.getInt("floor");
                 String type = rs.getString("type");
@@ -81,9 +81,9 @@ public class RoomInfoDao {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //step 3:execute a query
-            String sql = "insert into roomInfo (id,apartment_id,type,floor,price_range,available_date,layout_photo) values(?,?,?,?,?,?,?)";
+            String sql = "insert into roominfo (id,apartment_id,type,floor,price_range,available_date,layout_photo) values(?,?,?,?,?,?,?)";
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, roomInfo.getId());
+            stmt.setString(1, roomInfo.getId());
             stmt.setInt(2, roomInfo.getApartmentid());
             stmt.setString(3, roomInfo.getType());
             stmt.setInt(4, roomInfo.getFloor());
@@ -108,7 +108,7 @@ public class RoomInfoDao {
     }
 
     //delete data
-    public void deleteRoomInfo(int id){
+    public void deleteRoomInfo(String id){
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -117,9 +117,9 @@ public class RoomInfoDao {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //step 3:execute a query
-            String sql = "delete from roomInfo where id=?";
+            String sql = "delete from roominfo where id=?";
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setString(1, id);
             stmt.execute();
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -147,7 +147,7 @@ public class RoomInfoDao {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //step 3:execute a query
-            String sql = "update roomInfo set apartment_id=?,type=?,floor=?,price_range=?,available_date=?,layout_photo=? where id=?";
+            String sql = "update roominfo set apartment_id=?,type=?,floor=?,price_range=?,available_date=?,layout_photo=? where id=?";
             stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, roomInfo.getApartmentid());
@@ -156,7 +156,7 @@ public class RoomInfoDao {
             stmt.setString(4, roomInfo.getPriceRange());
             stmt.setString(5, roomInfo.getAvailableDate());
             stmt.setString(6, roomInfo.getLayoutPhoto());
-            stmt.setInt(7, roomInfo.getId());
+            stmt.setString(7, roomInfo.getId());
             stmt.execute();
         } catch (Exception e) {
             logger.error(e.getMessage());
@@ -175,7 +175,7 @@ public class RoomInfoDao {
     }
 
     //search roomInfo
-    public RoomInfo searchRoomInfo(int id){
+    public RoomInfo searchRoomInfo(String id){
         RoomInfo roomInfo = new RoomInfo();
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -185,9 +185,9 @@ public class RoomInfoDao {
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
 
             //step 3:execute a query
-            String sql = "select * from roomInfo where id=?";
+            String sql = "select * from roominfo where id=?";
             stmt = conn.prepareStatement(sql);
-            stmt.setInt(1, id);
+            stmt.setString(1, id);
             rs=stmt.executeQuery();
             //step 4: extract data from result set
             while (rs.next()) {

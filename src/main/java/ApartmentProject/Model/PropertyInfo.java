@@ -4,10 +4,7 @@ public class PropertyInfo {
     private int id;
     private int apartmentId;
     private int phoneNumber;
-    private String streetAddress;
-    private String city;
-    private String state;
-    private String zipCode;
+    private String address;
     private String email;
     private String officeHours;
     private String expenses;
@@ -45,38 +42,14 @@ public class PropertyInfo {
         this.phoneNumber=phoneNumber;
     }
 
-    public String getStreetAddress(){
+    public String getAddress(){
 
-        return streetAddress;
+        return address;
     }
 
-    public void setStreetAddress(String streetAddress){
+    public void setAddress(String streetAddress){
 
-        this.streetAddress=streetAddress;
-    }
-
-    public String getCity(){
-        return city;
-    }
-
-    public void setCity(String city){
-        this.city=city;
-    }
-
-    public String getState(){
-        return state;
-    }
-
-    public void setState(String State){
-        this.state=state;
-    }
-
-    public String getZipCode(){
-        return zipCode;
-    }
-
-    public void setZipCode(String zipCode){
-        this.zipCode=zipCode;
+        this.address=address;
     }
 
     public String getEmail(){

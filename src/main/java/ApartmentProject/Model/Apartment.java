@@ -1,10 +1,25 @@
 package ApartmentProject.Model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "apartment")
 public class Apartment {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "lowest_price")
     private String lowestPrice;
+
+    @Column(name = "smallest_size")
     private String smallestSize;
+
+    @Column(name = "photo")
     private String photo;
 
     public int getId(){
