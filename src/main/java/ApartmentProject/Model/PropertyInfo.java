@@ -1,15 +1,39 @@
 package ApartmentProject.Model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="propertyinfo")
 public class PropertyInfo {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
+
+    @Column(name="apartment_id")
     private int apartmentId;
+
+    @Column(name="phone_number")
     private int phoneNumber;
+
+    @Column(name="address")
     private String address;
+
+    @Column(name="email")
     private String email;
+
+    @Column(name="office_hours")
     private String officeHours;
+
+    @Column(name="expenses")
     private String expenses;
+
+    @Column(name="description")
     private String description;
+
+    @Column(name="amenities")
     private String amenities;
+
+    @Column(name="neighborhood")
     private String neighborhood;
 
 

@@ -1,12 +1,32 @@
 package ApartmentProject.Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="roominfo")
 public class RoomInfo {
+    @Id
     private String id;
+
+    @Column(name="apartment_id")
     private int apartmentId;
+
+    @Column(name="floor")
     private int floor;
+
+    @Column(name="type")
     private String type;
+
+    @Column(name="price_range")
     private String priceRange;
+
+    @Column(name="available_date")
     private String availableDate;
+
+    @Column(name="layout_photo")
     private String layoutPhoto;
 
     public String getId(){
